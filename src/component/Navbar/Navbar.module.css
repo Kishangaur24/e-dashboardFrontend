@@ -1,0 +1,9 @@
+.nav{
+    display:flex;
+    border: 2px solid red;
+    height: 3rem;
+    justify-content: space-around;
+    align-items: center;
+    background-color: skyblue;
+  
+}
