@@ -3,6 +3,7 @@ import { Routes,Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './component/Navbar/Navbar';
 import Footer from './component/Footer/Footer';
+import SignUp from './component/SignUp/SignUp';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
     <Route path='/update' element={<h1>update product</h1>}/>
     <Route path='/logout' element={<h1>logout</h1>}/>
     <Route path='/profile' element={<h1>profile wala page</h1>}/>
+    <Route path='/signup' element={<SignUp/>}/>
   </Routes>
     <Footer/>
      
