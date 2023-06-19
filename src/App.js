@@ -5,6 +5,7 @@ import Navbar from './component/Navbar/Navbar';
 import Footer from './component/Footer/Footer';
 import SignUp from './component/SignUp/SignUp';
 import PrivateComponent from './component/PrivateComponent/PrivateComponent';
+import Login from './component/Login/Login';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
     <Route path='/profile' element={<h1>profile wala page</h1>}/>
     </Route>
     <Route path='/signup' element={<SignUp/>}/>
+    <Route path='/login' element={<Login/>}/>
   </Routes>
     <Footer/>
      
