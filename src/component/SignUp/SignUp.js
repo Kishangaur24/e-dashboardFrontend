@@ -1,10 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from "./SignUp.module.css"
+import { useNavigate } from "react-router-dom";
 const SignUp = () => {
     const [name,setName]= useState("")
     const [email,setEmail]= useState("")
     const [password,setPassword]= useState("")
-
+    const navigate = useNavigate()
+    useEffect(()=>{
+    const auth = localStorage.getItem("user")
+    if(auth){
+      navigate("/")
+    }
+    },[])
   const handleRegister=async ()=>{
         console.log(name,email,password)
         let result =await fetch("http://localhost:7000/register",{
@@ -16,7 +23,9 @@ const SignUp = () => {
         })
         result = await result.json()
         alert("registration successfull")
+        navigate("/")
         console.log(result)
+        localStorage.setItem("user",JSON.stringify(result))
     }
 
   return (
