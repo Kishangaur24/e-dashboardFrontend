@@ -1,11 +1,36 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import style from "./Login.module.css"
+import { useNavigate } from 'react-router-dom'
 const Login = () => {
   const [email,setEmail]= useState("")
   const [password,setPassword]= useState("")
+ const navigate = useNavigate()
 
-  function handleLogin(){
-    alert("login karo")
+ useEffect(()=>{
+ const auth = localStorage.getItem("user")
+ if(auth){
+  navigate("/")
+ }
+ },[])
+
+
+  async function handleLogin(){
+   let result = await fetch("http://localhost:7000/login",{
+    method:"post",
+    body:JSON.stringify({email,password}),
+    headers:{
+      "Content-Type":"application/json"
+    },
+   })
+    
+   result = await result.json()
+   console.log(result)
+   if(result.email){
+    localStorage.setItem("user",JSON.stringify(result))
+   }else{
+    alert("please enter correct details")
+   }
+  navigate("/")
   }
   return (
 

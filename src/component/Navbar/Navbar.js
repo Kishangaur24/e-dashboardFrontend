@@ -32,21 +32,20 @@ const Navbar = () => {
       <li class="nav-item">
         <Link class="nav-link " to="/profile">Profile</Link>
       </li>
-      {
-        auth?
-        <li class="nav-item">
-        <Link onClick={logout} class="nav-link " to="/signup">Logout</Link>
-      </li>:
-     
-       <li class="nav-item">
-       <Link class="nav-link " to="/signup">SignUp</Link>
-     </li>
-     
- 
-      }
-        <li class="nav-item">
-       <Link class="nav-link " to="/login">Login</Link>
-     </li>
+    
+     {
+      auth ?  <li class="nav-item">
+      <Link onClick={logout} class="nav-link " to="/signup">Logout</Link>
+    </li>:
+    <>
+     <li class="nav-item">
+     <Link class="nav-link " to="/signup">SignUp</Link>
+   </li>
+     <li class="nav-item">
+     <Link class="nav-link " to="/login">Login</Link>
+   </li>
+   </>
+     }
     </ul>
   </div>
 </nav>
