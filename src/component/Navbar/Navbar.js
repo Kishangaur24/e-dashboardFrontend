@@ -3,7 +3,7 @@ import { Link,useNavigate } from "react-router-dom";
 import style from "./Navbar.module.css"
 import Login from "../Login/Login";
 const Navbar = () => {
-  const auth = localStorage.getItem("user")
+  const auth = JSON.parse(localStorage.getItem("user"))
   const navigate = useNavigate()
   const logout=()=>{
     localStorage.clear()
@@ -18,6 +18,7 @@ const Navbar = () => {
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
+    {auth?
     <ul class="navbar-nav">
       <li class="nav-item ">
         <Link class="nav-link ml-5" to="/">Product </Link>
@@ -33,22 +34,25 @@ const Navbar = () => {
         <Link class="nav-link " to="/profile">Profile</Link>
       </li>
     
-     {
-      auth ?  <li class="nav-item">
-      <Link onClick={logout} class="nav-link " to="/signup">Logout</Link>
-    </li>:
-    <>
+       <li class="nav-item">
+      <Link onClick={logout} class="nav-link " to="/signup">Logout ({auth.name})</Link>
+    </li>
+    </ul>
+    :
+  
+    <ul class="navbar-nav mr-auto">
      <li class="nav-item">
      <Link class="nav-link " to="/signup">SignUp</Link>
    </li>
      <li class="nav-item">
      <Link class="nav-link " to="/login">Login</Link>
    </li>
-   </>
-     }
-    </ul>
+   </ul>
+  
+}
   </div>
 </nav>
+
     </div>
   );
 };
