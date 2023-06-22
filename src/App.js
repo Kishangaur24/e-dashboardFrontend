@@ -7,6 +7,7 @@ import SignUp from './component/SignUp/SignUp';
 import PrivateComponent from './component/PrivateComponent/PrivateComponent';
 import Login from './component/Login/Login';
 import AddProduct from './component/AddProduct/AddProduct';
+import ProductList from './component/ProductList/ProductList';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
  <Routes>
     
     <Route element={<PrivateComponent/>}>
-    <Route path='/' element={<h1>product wala page</h1>}/>
+    <Route path='/' element={<ProductList/>}/>
     <Route path='/add' element={<AddProduct/>}/>
     <Route path='/update' element={<h1>update product</h1>}/>
     <Route path='/logout' element={<h1>logout</h1>}/>

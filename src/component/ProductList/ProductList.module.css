@@ -1,0 +1,15 @@
+.productList{
+    text-align: center;
+    margin-top: 3rem;
+   
+}
+.productList ul li{
+    display: inline-block;
+    border: 2px solid skyblue;
+    padding: 0.5rem;
+    width: 8rem;
+    
+}
+.productList ul{
+    margin: 0;
+}
